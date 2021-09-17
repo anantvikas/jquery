@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="panel">
+        Line 1<br> Line 2
+    </div>
+    <div class="panel">
+        Line 1<br> Line 2 <br> Line 3<br> Line 4
+    </div>
+    <div class="panel">
+        hii
+    </div>
+    <div class="panel">
+        Line 1<br> Line 2<br> Line 3<br>
+
+    </div>
+    <script>
+        var highest = null;
+        var hi = 0;
+        $(".panel").each(function() {
+            var h = $(this).height();
+            if (h > hi) {
+                hi = h;
+                highest = $(this);
+            }
+        });
+        highest.css('background-color', 'red');
+    </script>
+</body>
+
+</html>

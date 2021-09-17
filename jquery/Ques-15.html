@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="server">
+        <button id="ajaxBtn">Click here</button>
+        <p class="server"></p>
+    </div>
+
+    <script>
+        $("document").ready(function() {
+            $("#ajaxBtn").click(function() {
+                console.log("hello");
+                $.get('https://jsonplaceholder.typicode.com/posts/1', function(data) {
+                    console.log(data);
+                    $("p.server").append(data.title);
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

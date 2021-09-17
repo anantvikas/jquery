@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        #slideshow {
+            max-height: 300px;
+            max-width: 300px;
+        }
+        
+        #holder {
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <Div id="holder">
+        <img src="https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg" id="slideshow" />
+    </Div>
+    <script>
+        images = ['http://st2.depositphotos.com/3347209/6125/i/450/depositphotos_61250691-Crows-in-the-forest.jpg', 'https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ', 'https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg'];
+
+
+        setInterval(forwardImage, 4000);
+
+
+        //This function will find the key for the current Image
+        function currentImageKey() {
+            i = jQuery.inArray($('#slideshow').attr('src'), images);
+            return i;
+        }
+
+
+        //This function will move the slideshow forward one
+        function forwardImage() {
+            currentImageKey();
+            if (i < images.length - 1) {
+                changeImage(i + 1);
+            } else {
+                changeImage(0);
+            }
+        }
+
+
+        //This function will change to image to whatever the variable i passes to it
+        function changeImage(i) {
+            $('#slideshow').stop().animate({
+                opacity: 0,
+            }, 200, function() {
+                $('#slideshow').attr('src', images[i]);
+                $('#holder img').load(function() {
+                    $('#slideshow').stop().animate({
+                        opacity: 1,
+                    }, 200)
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>

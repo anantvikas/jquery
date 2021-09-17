@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+</head>
+
+<body>
+    <div class="container">
+        <click class="second">
+            Random text
+        </click>
+
+        <script>
+            $(function() {
+                $(".second").bind("click", function() {
+                    $(".container").append("<br><click>Click1 appended</click>");
+                })
+
+            })
+        </script>
+</body>
+
+</html>
